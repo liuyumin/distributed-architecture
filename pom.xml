@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--maven 继承父POM文件 -->
+    <parent>
+        <groupId>com.weiwei.component.parent</groupId>
+        <artifactId>component-parent</artifactId>
+        <version>1.1.0</version>
+    </parent>
+
+    <groupId>com.weiwei.distributed.architecture</groupId>
+    <artifactId>distributed-architecture</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <!--子模块-->
+    <modules>
+        <module>distributed-architecture-component</module>
+        <module>distributed-architecture-task</module>
+        <module>distributed-architecture-api-interface</module>
+        <module>distributed-architecture-client</module>
+        <module>distributed-architecture-third-service</module>
+        <module>distributed-architecture-mainserver</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.weiwei.distributed.architecture.service</groupId>
+                <artifactId>distributed-architecture-service</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
