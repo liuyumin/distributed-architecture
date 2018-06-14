@@ -23,7 +23,7 @@
         <module>distributed-architecture-api-interface</module>
         <module>distributed-architecture-client</module>
         <module>distributed-architecture-third-service</module>
-        <module>distributed-architecture-mainserver</module>
+        <module>distributed-architecture-server</module>
     </modules>
 
     <dependencyManagement>
