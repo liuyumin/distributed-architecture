@@ -1,0 +1,50 @@
+======================application=========================
+
+======================redis===============================
+
+======================dubbo_config===============================
+
+======================datasource_config=========================
+jdbc.dataSourceClassName = com.alibaba.druid.pool.DruidDataSource
+jdbc.driverClassName = com.mysql.jdbc.Driver
+jdbc.url = jdbc:mysql://localhost:3306/distributed_architecture?useUnicode = true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+jdbc.username = root
+jdbc.password = root
+
+# 配置初始化大小、最小、最大
+jdbc.initialSize = 5
+jdbc.minIdle = 5
+jdbc.maxActive = 20
+
+# 配置获取连接等待超时的时间
+jdbc.maxWait = 60000
+
+# 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+jdbc.timeBetweenEvictionRunsMillis = 60000
+
+# 配置一个连接在池中最小生存的时间，单位是毫秒
+jdbc.minEvictableIdleTimeMillis = 300000
+
+jdbc.validationQuery = SELECT 'x'
+jdbc.testWhileIdle = true
+jdbc.testOnBorrow = false
+jdbc.testOnReturn = false
+
+# 打开PSCache，并且指定每个连接上PSCache的大小，mysql设置为false
+jdbc.poolPreparedStatements = false
+jdbc.maxPoolPreparedStatementPerConnectionSize = 20
+
+# 是否打开执行sql语句
+jdbc.statementExecutableSqlLogEnable = false
+
+# 设置慢查询时间
+jdbc.setSlowSqlMillis = 1000
+
+====================== xxjob_config ====================
+xxl.job.admin.addresses = http://192.168.241.130:8080/xxl-job-admin-1.9.2-SNAPSHOT
+xxl.job.executor.appname = xxl-job-executor-distributed-architecture-server
+xxl.job.executor.ip = ''
+xxl.job.executor.port = 9999
+xxl.job.accessToken = ''
+xxl.job.executor.logpath = /data/applogs/xxl-job/jobhandler
+xxl.job.executor.logretentiondays = -1
