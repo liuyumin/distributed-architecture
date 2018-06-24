@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-@Import(DbConfig.class)
+@Import({DbConfig.class,ApolloConfig.class})
 @Configuration
 @ComponentScan(basePackages = {"distributed.architecture.services"})
 @MapperScan("distributed.architecture.services.mapper")

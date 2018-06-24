@@ -9,27 +9,27 @@ import org.springframework.context.annotation.Configuration;
 /***
  * 添加Jetty容器配置
  */
-@Configuration
+
 public class JettyConfig {
 
-    @Bean
-    public JettyEmbeddedServletContainerFactory jettyEmbeddedServletContainerFactory(JettyServerCustomizer jettyServerCustomizer) {
-        JettyEmbeddedServletContainerFactory jettyEmbeddedServletContainerFactory = new JettyEmbeddedServletContainerFactory();
-        jettyEmbeddedServletContainerFactory.addServerCustomizers(jettyServerCustomizer);
-        jettyEmbeddedServletContainerFactory.setPort(9998);
-        jettyEmbeddedServletContainerFactory.setContextPath("/home");
-
-
-        return jettyEmbeddedServletContainerFactory;
-    }
-
-
-    @Bean
-    public JettyServerCustomizer jettyServerCustomizer() {
-        return server -> {
-            final QueuedThreadPool threadPool = server.getBean(QueuedThreadPool.class);
-            threadPool.setMaxThreads(100);
-            threadPool.setMinThreads(20);
-        };
-    }
+//    @Bean
+//    public JettyEmbeddedServletContainerFactory jettyEmbeddedServletContainerFactory(JettyServerCustomizer jettyServerCustomizer) {
+//        JettyEmbeddedServletContainerFactory jettyEmbeddedServletContainerFactory = new JettyEmbeddedServletContainerFactory();
+//        jettyEmbeddedServletContainerFactory.addServerCustomizers(jettyServerCustomizer);
+//        jettyEmbeddedServletContainerFactory.setPort(9998);
+//        jettyEmbeddedServletContainerFactory.setContextPath("/home");
+//
+//
+//        return jettyEmbeddedServletContainerFactory;
+//    }
+//
+//
+//    @Bean
+//    public JettyServerCustomizer jettyServerCustomizer() {
+//        return server -> {
+//            final QueuedThreadPool threadPool = server.getBean(QueuedThreadPool.class);
+//            threadPool.setMaxThreads(100);
+//            threadPool.setMinThreads(20);
+//        };
+//    }
 }

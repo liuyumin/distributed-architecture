@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.weiwei.distributed.architecture.client</groupId>
-    <artifactId>distributed-architecture-client</artifactId>
+    <artifactId>distributed-architecture-customer</artifactId>
 
 
 </project>

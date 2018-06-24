@@ -19,14 +19,13 @@
     <!--子模块-->
     <modules>
         <module>distributed-architecture-component</module>
-        <module>distributed-architecture-api-interface</module>
-        <module>distributed-architecture-client</module>
         <module>distributed-architecture-third-service</module>
         <module>distributed-architecture-server</module>
         <module>distributed-architecture-services</module>
         <module>distributed-architecture-task</module>
         <module>distributed-architecture-doc</module>
         <module>distributed-architecture-api</module>
+        <module>distributed-architecture-customer</module>
     </modules>
 
     <dependencies>
@@ -63,7 +62,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -101,6 +100,27 @@
         <dependency>
             <groupId>com.xuxueli</groupId>
             <artifactId>xxl-job-core</artifactId>
+        </dependency>
+        <!-- jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty-server.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty-server.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+            <version>${jetty-server.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>${jetty-server.version}</version>
         </dependency>
 
     </dependencies>

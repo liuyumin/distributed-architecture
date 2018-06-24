@@ -24,7 +24,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.weiwei.distributed.architecture</groupId>
+            <groupId>com.weiwei.distributed.architecture.task</groupId>
             <artifactId>distributed-architecture-task</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
