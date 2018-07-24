@@ -12,6 +12,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
@@ -48,6 +49,7 @@ public class DbConfig {
      * 数据源定义
      */
     @Bean
+    @Primary
     public DataSource dataSource(DbProperties dbProperties) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(dbProperties.getDbDriverClassName());
@@ -65,7 +67,7 @@ public class DbConfig {
             System.exit(1);
         }
 
-        dataSource.setProxyFilters(getFileters(dbProperties));
+//        dataSource.setProxyFilters(getFileters(dbProperties));
         return dataSource;
     }
 
@@ -74,19 +76,19 @@ public class DbConfig {
      * @param dbProperties
      * @return
      */
-    private List<Filter> getFileters(DbProperties dbProperties){
-        List<Filter> filters = new ArrayList<>();
-        Slf4jLogFilter slf4jLogFilter = new Slf4jLogFilter();
-        slf4jLogFilter.setStatementExecutableSqlLogEnable(dbProperties.isStatementExecutableSqlLogEnable());
-        filters.add(slf4jLogFilter);
-
-        StatFilter statFilter = new StatFilter();
-        statFilter.setMergeSql(true);
-        statFilter.setLogSlowSql(true);
-        statFilter.setSlowSqlMillis(dbProperties.getSlowSqlMillis());
-        filters.add(statFilter);
-        return filters;
-    }
+//    private List<Filter> getFileters(DbProperties dbProperties){
+//        List<Filter> filters = new ArrayList<>();
+//        Slf4jLogFilter slf4jLogFilter = new Slf4jLogFilter();
+//        slf4jLogFilter.setStatementExecutableSqlLogEnable(dbProperties.isStatementExecutableSqlLogEnable());
+//        filters.add(slf4jLogFilter);
+//
+//        StatFilter statFilter = new StatFilter();
+//        statFilter.setMergeSql(true);
+//        statFilter.setLogSlowSql(true);
+//        statFilter.setSlowSqlMillis(dbProperties.getSlowSqlMillis());
+//        filters.add(statFilter);
+//        return filters;
+//    }
 
     /**
      * 分页插件信息

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="distributed.architecture.services.mapper.PersistentLoginsMapper">
+  <resultMap id="BaseResultMap" type="distributed.architecture.services.entity.PersistentLogins">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="series" jdbcType="VARCHAR" property="series" />
+    <result column="token_value" jdbcType="VARCHAR" property="tokenValue" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, series, token_value, date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from persistent_logins
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from persistent_logins
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="distributed.architecture.services.entity.PersistentLogins">
+    insert into persistent_logins (id, username, series, 
+      token_value, date)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{series,jdbcType=VARCHAR}, 
+      #{tokenValue,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="distributed.architecture.services.entity.PersistentLogins">
+    insert into persistent_logins
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="series != null">
+        series,
+      </if>
+      <if test="tokenValue != null">
+        token_value,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="series != null">
+        #{series,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenValue != null">
+        #{tokenValue,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="distributed.architecture.services.entity.PersistentLogins">
+    update persistent_logins
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="series != null">
+        series = #{series,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenValue != null">
+        token_value = #{tokenValue,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="distributed.architecture.services.entity.PersistentLogins">
+    update persistent_logins
+    set username = #{username,jdbcType=VARCHAR},
+      series = #{series,jdbcType=VARCHAR},
+      token_value = #{tokenValue,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteByUsername">
+    delete from persistent_logins where username = #{username}
+  </delete>
+
+  <delete id="deleteByToken">
+    delete from persistent_logins where token = #{token}
+  </delete>
+
+  <select id="getBySeries" resultType="distributed.architecture.services.entity.PersistentLogins">
+    select
+        id as id,
+        username as username,
+        series as series,
+        token_value as tokenValue,
+        date as date
+    from persistent_logins where series = #{series}
+  </select>
+
+  <select id="getAllByUsernameOrderByDate" resultType="distributed.architecture.services.entity.PersistentLogins">
+    select
+        id as id,
+        username as username,
+        series as series,
+        token_value as tokenValue,
+        date as date
+    from persistent_logins where username = #{username}
+  </select>
+
+</mapper>
