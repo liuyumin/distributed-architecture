@@ -1,4 +1,4 @@
-package distributed.architecture.security.browser.support;
+package com.weiwei.distributed.architecture.core.support;
 
 import lombok.Getter;
 import lombok.Setter;

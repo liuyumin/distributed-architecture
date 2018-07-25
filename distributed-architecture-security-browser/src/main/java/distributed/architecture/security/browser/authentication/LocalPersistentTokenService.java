@@ -1,6 +1,7 @@
 package distributed.architecture.security.browser.authentication;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.weiwei.distributed.architecture.core.properties.BrowserProperties;
 import distributed.architecture.security.browser.properties.BrowserSecurityProperties;
 import distributed.architecture.services.dao.RememberMeTokenRepository;
 import distributed.architecture.services.entity.PersistentLogins;
@@ -22,14 +23,14 @@ public class LocalPersistentTokenService implements PersistentTokenRepository {
     private RememberMeTokenRepository rememberMeTokenRepository;
 
     @Autowired
-    private BrowserSecurityProperties browserSecurityProperties;
+    private BrowserProperties browserProperties;
 
     @Override
     public void createNewToken(PersistentRememberMeToken persistentRememberMeToken) {
         List<PersistentLogins> tokens = rememberMeTokenRepository.getLocalAllByUsernameOrderByDate(persistentRememberMeToken.getUsername());
 
-        if (null != tokens &&  tokens.size() >= browserSecurityProperties.getLoginPoints()){
-            int end = tokens.size() - browserSecurityProperties.getLoginPoints() + 1;
+        if (null != tokens &&  tokens.size() >= browserProperties.getLoginPoints()){
+            int end = tokens.size() - browserProperties.getLoginPoints() + 1;
             for (int i = 0; i < end; i++) {
                 rememberMeTokenRepository.delete(tokens.get(i));
             }

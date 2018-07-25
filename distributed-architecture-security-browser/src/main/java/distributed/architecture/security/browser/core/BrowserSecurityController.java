@@ -2,26 +2,21 @@ package distributed.architecture.security.browser.core;
 
 import cn.hutool.core.util.StrUtil;
 import com.weiwei.distributed.architecture.core.constants.SecurityConstants;
-import distributed.architecture.security.browser.properties.BrowserSecurityProperties;
-import distributed.architecture.security.browser.support.SimpleResponse;
-import distributed.architecture.security.browser.support.SocialUserInfo;
+import com.weiwei.distributed.architecture.core.properties.BrowserProperties;
+import com.weiwei.distributed.architecture.core.support.SimpleResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.web.ProviderSignInUtils;
-import org.springframework.social.security.SocialUserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +30,7 @@ public class BrowserSecurityController {
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Autowired
-    private BrowserSecurityProperties localSecurityProperties;
+    private BrowserProperties browserProperties;
 
     @Autowired
     private ProviderSignInUtils providerSignInUtils;
@@ -54,7 +49,7 @@ public class BrowserSecurityController {
             String targetUrl = savedRequest.getRedirectUrl();
             log.info("-------BrowserSecurityController requireAuthentication-----引发跳转的请求是:=[{}]",savedRequest.getRedirectUrl());
             if (StrUtil.endWithIgnoreCase(targetUrl,".html")){
-                redirectStrategy.sendRedirect(request,response,localSecurityProperties.getCustomPage());
+                redirectStrategy.sendRedirect(request,response, browserProperties.getCustomPage());
             }
         }
 

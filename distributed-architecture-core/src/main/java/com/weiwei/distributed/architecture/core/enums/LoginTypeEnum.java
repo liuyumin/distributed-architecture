@@ -1,4 +1,4 @@
-package distributed.architecture.security.browser.enums;
+package com.weiwei.distributed.architecture.core.enums;
 
 import cn.hutool.core.util.StrUtil;
 

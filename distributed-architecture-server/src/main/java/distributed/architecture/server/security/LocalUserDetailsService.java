@@ -1,4 +1,4 @@
-package distributed.architecture.security.browser.core;
+package distributed.architecture.server.security;
 
 import distributed.architecture.services.dao.RememberMeTokenRepository;
 import distributed.architecture.services.entity.PersistentLogins;

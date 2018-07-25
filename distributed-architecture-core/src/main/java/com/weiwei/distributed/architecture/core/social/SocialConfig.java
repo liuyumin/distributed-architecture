@@ -19,7 +19,7 @@ import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.security.SpringSocialConfigurer;
 
 import javax.sql.DataSource;
-@Import({QQAutoConfig.class})
+
 @Configuration
 @EnableSocial
 @Order(1)

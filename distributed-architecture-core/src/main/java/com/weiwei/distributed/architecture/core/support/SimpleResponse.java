@@ -1,4 +1,4 @@
-package distributed.architecture.security.browser.support;
+package com.weiwei.distributed.architecture.core.support;
 
 public class SimpleResponse {
 

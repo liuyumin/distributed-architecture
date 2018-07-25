@@ -28,6 +28,7 @@
         <module>distributed-architecture-customer</module>
         <module>distributed-architecture-security-browser</module>
         <module>distributed-architecture-core</module>
+        <module>distributed-architecture-security-app</module>
     </modules>
 
     <dependencies>

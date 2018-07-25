@@ -1,9 +1,9 @@
-package distributed.architecture.security.browser.authentication;
+package com.weiwei.distributed.architecture.authentication;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.weiwei.distributed.architecture.core.properties.BrowserProperties;
 import com.weiwei.distributed.architecture.core.enums.LoginTypeEnum;
+import com.weiwei.distributed.architecture.core.properties.BrowserProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
