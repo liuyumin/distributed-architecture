@@ -30,4 +30,3 @@ nbdist/
 .nb-gradle/
 
 .mvn
-fin-business-loan-admin-service/src/main/java/com/weimob/finance/business/loan/service/thirdparty/CsecApiService.java
